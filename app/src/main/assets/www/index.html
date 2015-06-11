@@ -28,21 +28,38 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>GPS Measure</title>
     </head>
-    <body>
-        Ａ地点：緯度&nbsp;<span id="latitudeA"></span>&nbsp;経度&nbsp;<span id="longitudeA"></span><br />
-        Ｂ地点：緯度&nbsp;<span id="latitudeB"></span>&nbsp;経度&nbsp;<span id="longitudeB"></span><br />
-        距離&nbsp;&nbsp;：<span id="distance"></span><br />
-        <span id="message"></span><br />
+    <style type="text/css">
+        <!--
+
+        #btnR {float:right;}
+        .textarea {background-image:none;
+                   background-color: white;
+                   border-radius: 1em;
+                   border: solid 1px;}
+        -->
+    </style>
+    <body bgcolor="gray">
+        <div style="background-image:url(./img/textarea.png)">
+            Ａ地点：緯度&nbsp;<span id="latitudeA"></span>&nbsp;経度&nbsp;<span id="longitudeA"></span><br />
+            Ｂ地点：緯度&nbsp;<span id="latitudeB"></span>&nbsp;経度&nbsp;<span id="longitudeB"></span><br />
+            距離&nbsp;&nbsp;：<span id="distance"></span><br />
+            <span id="message"></span><br />
+            <span id="btnR"><img border="0" src="./img/clear_button.png" width="30" height="30" alt="C"/></span>
+        </div>
         <input type="button" id="btnA" value="Ａ地点" /><br />
         <input type="button" id="btnB" value="Ｂ地点" /><br />
-        <input type="button" id="btnR" value="Ｒ" />
         <br />
 
         <!-- テスト用 -->
         <p>
             緯度：<input type="text" id="latitudeDummy" /><br />
             経度：<input type="text" id="longitudeDummy" /><br />
-            <input type="button" id="setA" value="Ａ地点にセット" />&nbsp;<input type="button" id="setB" value="Ｂ地点にセット" />
+
+            <div align="center">
+                <img id="setA" border="0" src="./img/a_button.png" width="128" height="128" alt="A地点"/>
+                <br/>
+                <img id="setB" border="0" src="./img/b_button.png" width="128" height="128" alt="B地点"/>
+            </div>
         </p>
         <script type="text/javascript" src="js/cordova.js"></script>
         <script src="js/jquery.js"></script>
