@@ -65,7 +65,3 @@ function setDistance() {
 function changeImage( imgid , newimg ) {
    document.getElementById(imgid).src = newimg;
 }
-// 遅延実行
-function sleep(time, callback) {
-	setTimeout(callback, time)
-}
