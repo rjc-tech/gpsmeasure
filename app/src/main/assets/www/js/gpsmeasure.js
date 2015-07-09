@@ -1,13 +1,34 @@
-document.addEventListener('deviceready', function(){
+document.addEventListener('deviceready', function() {
 	if (!navigator.geolocation) {
 		$("#message").text("お使いの端末ではご利用できません");
 		return;
 	}
 
+	if (!window.localStorage) {
+		$("#message").text("お使いの端末ではご利用できません");
+		return;
+	}
+
+	var latitudeA = window.localStorage.getItem("latitudeA");
+	if (latitudeA) {
+		$("#latitudeA").text(latitudeA);
+		$("#longitudeA").text(window.localStorage.getItem("longitudeA"));
+	}
+
+	var latitudeB = window.localStorage.getItem("latitudeB");
+	if (latitudeB) {
+		$("#latitudeB").text(latitudeB);
+		$("#longitudeB").text(window.localStorage.getItem("longitudeB"));
+	}
+
+	setDistance();
+
 	var geoOptions = { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true };
 
 	$("#btnA").click(function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
+			window.localStorage.setItem("latitudeA", position.coords.latitude);
+			window.localStorage.setItem("longitudeA", position.coords.longitude);
 			$("#latitudeA").text(position.coords.latitude);
 			$("#longitudeA").text(position.coords.longitude);
 			setDistance();
@@ -21,6 +42,8 @@ document.addEventListener('deviceready', function(){
 
 	$("#btnB").click(function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
+			window.localStorage.setItem("latitudeB", position.coords.latitude);
+			window.localStorage.setItem("longitudeB", position.coords.longitude);
 			$("#latitudeB").text(position.coords.latitude);
 			$("#longitudeB").text(position.coords.longitude);
 			setDistance();
@@ -39,6 +62,7 @@ document.addEventListener('deviceready', function(){
 		$("#longitudeB").text("");
 		$("#distance").text("");
 		$("#message").text("");
+		window.localStorage.clear();
 	    changeImage("btnR","./img/clear_button_onClick.png");
 		sleep(100, function (){changeImage("btnR","./img/clear_button.png")});
 	});
