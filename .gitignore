@@ -29,6 +29,7 @@ proguard/
 .settings/
 project.properties
 lint.xml
+misc.xml
 
 *.iml
 *.ipr
