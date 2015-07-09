@@ -6,6 +6,14 @@ document.addEventListener('deviceready', function(){
 
 	var geoOptions = { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true };
 
+	// ボタン押下時のレイアウトチェンジ
+	$('#btnA').bind('touchstart', function() {changeImage("btnA","./img/a_button_onClick.png");});
+	$('#btnA').bind('touchend', function() {changeImage("btnA","./img/a_button.png");});
+	$('#btnB').bind('touchstart', function() {changeImage("btnB","./img/b_button_onClick.png");});
+	$('#btnB').bind('touchend', function() {changeImage("btnB","./img/b_button.png");});
+	$('#btnR').bind('touchstart', function() {changeImage("btnR","./img/clear_button_onClick.png");});
+	$('#btnR').bind('touchend', function() {changeImage("btnR","./img/clear_button.png");});
+
 	$("#btnA").click(function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
 			$("#latitudeA").text(position.coords.latitude);
@@ -15,8 +23,6 @@ document.addEventListener('deviceready', function(){
 		function(e) {
 			$("#message").text("Ａ地点の位置情報が取得できませんでした");
 		}, geoOptions);
-	    changeImage("btnA","./img/a_button_onClick.png");
-		sleep(100, function (){changeImage("btnA","./img/a_button.png")});
 	});
 
 	$("#btnB").click(function() {
@@ -28,8 +34,6 @@ document.addEventListener('deviceready', function(){
 		function(e) {
 			$("#message").text("Ｂ地点の位置情報が取得できませんでした");
 		}, geoOptions);
-	    changeImage("btnB","./img/b_button_onClick.png");
-		sleep(100, function (){changeImage("btnB","./img/b_button.png")});
 	});
 
 	$("#btnR").click(function() {
@@ -39,8 +43,6 @@ document.addEventListener('deviceready', function(){
 		$("#longitudeB").text("");
 		$("#distance").text("");
 		$("#message").text("");
-	    changeImage("btnR","./img/clear_button_onClick.png");
-		sleep(100, function (){changeImage("btnR","./img/clear_button.png")});
 	});
 }, false);
 
