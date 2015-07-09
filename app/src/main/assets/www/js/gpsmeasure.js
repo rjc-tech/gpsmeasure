@@ -1,4 +1,4 @@
-document.addEventListener('deviceready', function() {
+document.addEventListener('deviceready', function(){
 	if (!navigator.geolocation) {
 		$("#message").text("お使いの端末ではご利用できません");
 		return;
@@ -26,12 +26,12 @@ document.addEventListener('deviceready', function() {
 	var geoOptions = { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true };
 
 	// ボタン押下時のレイアウトチェンジ
-	$('#btnA').bind('touchstart', function() {changeImage("btnA","./img/a_button_onClick.png");});
-	$('#btnA').bind('touchend', function() {changeImage("btnA","./img/a_button.png");});
-	$('#btnB').bind('touchstart', function() {changeImage("btnB","./img/b_button_onClick.png");});
-	$('#btnB').bind('touchend', function() {changeImage("btnB","./img/b_button.png");});
-	$('#btnR').bind('touchstart', function() {changeImage("btnR","./img/clear_button_onClick.png");});
-	$('#btnR').bind('touchend', function() {changeImage("btnR","./img/clear_button.png");});
+	$("#btnA").bind("touchstart", function() {changeImage("btnA","./img/a_button_onClick.png");});
+	$("#btnA").bind("touchend", function() {changeImage("btnA","./img/a_button.png");});
+	$("#btnB").bind("touchstart", function() {changeImage("btnB","./img/b_button_onClick.png");});
+	$("#btnB").bind("touchend", function() {changeImage("btnB","./img/b_button.png");});
+	$("#btnR").bind("touchstart", function() {changeImage("btnR","./img/clear_button_onClick.png");});
+	$("#btnR").bind("touchend", function() {changeImage("btnR","./img/clear_button.png");});
 
 	$("#btnA").click(function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -88,5 +88,5 @@ function setDistance() {
 
 // 画像差し替え用処理
 function changeImage( imgid , newimg ) {
-   document.getElementById(imgid).src = newimg;
+   $("#" + imgid).attr("src", newimg);
 }
