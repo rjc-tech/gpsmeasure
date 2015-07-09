@@ -28,22 +28,23 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>GPS Measure</title>
     </head>
-    <body>
-        Ａ地点：緯度&nbsp;<span id="latitudeA"></span>&nbsp;経度&nbsp;<span id="longitudeA"></span><br />
-        Ｂ地点：緯度&nbsp;<span id="latitudeB"></span>&nbsp;経度&nbsp;<span id="longitudeB"></span><br />
-        距離&nbsp;&nbsp;：<span id="distance"></span><br />
-        <span id="message"></span><br />
-        <input type="button" id="btnA" value="Ａ地点" /><br />
-        <input type="button" id="btnB" value="Ｂ地点" /><br />
-        <input type="button" id="btnR" value="Ｒ" />
-        <br />
+    <style type="text/css">
+    </style>
+    <body bgcolor="gray">
+        <div style="background-color: white; padding: 5px;">
+            <span>Ａ地点：緯度&nbsp;</span><span id="latitudeA"></span>&nbsp;<span style="margin-left: 50px;">経度&nbsp;</span><span id="longitudeA"></span><br />
+            <span>Ｂ地点：緯度&nbsp;</span><span id="latitudeB"></span>&nbsp;<span style="margin-left: 50px;">経度&nbsp;</span><span id="longitudeB"></span><br />
+            <span>距離　：</span><span id="distance"></span><br />
+            <span id="message" style="color: red;"></span>
+            <div align="right"><img id="btnR" border="0" src="./img/clear_button.png" alt="C"/></div>
+        </div>
+        <br/>
 
-        <!-- テスト用 -->
-        <p>
-            緯度：<input type="text" id="latitudeDummy" /><br />
-            経度：<input type="text" id="longitudeDummy" /><br />
-            <input type="button" id="setA" value="Ａ地点にセット" />&nbsp;<input type="button" id="setB" value="Ｂ地点にセット" />
-        </p>
+        <div align="center">
+            <img id="btnA" border="0" src="./img/a_button.png" width="180" height="180" alt="A地点"/>
+            <br/><br/>
+            <img id="btnB" border="0" src="./img/b_button.png" width="180" height="180" alt="B地点"/>
+        </div>
         <script type="text/javascript" src="js/cordova.js"></script>
         <script src="js/jquery.js"></script>
         <script src="js/geolib.js"></script>

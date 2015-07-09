@@ -7,6 +7,7 @@ document.addEventListener('deviceready', function(){
 	var geoOptions = { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true };
 
 	$("#btnA").click(function() {
+	    changeImage("btnA","./img/a_button_onClick.png");
 		navigator.geolocation.getCurrentPosition(function(position) {
 			$("#latitudeA").text(position.coords.latitude);
 			$("#longitudeA").text(position.coords.longitude);
@@ -15,9 +16,11 @@ document.addEventListener('deviceready', function(){
 		function(e) {
 			$("#message").text("Ａ地点の位置情報が取得できませんでした");
 		}, geoOptions);
+	    changeImage("btnA","./img/a_button.png");
 	});
 
 	$("#btnB").click(function() {
+	    changeImage("btnB","./img/b_button_onClick.png");
 		navigator.geolocation.getCurrentPosition(function(position) {
 			$("#latitudeB").text(position.coords.latitude);
 			$("#longitudeB").text(position.coords.longitude);
@@ -26,6 +29,7 @@ document.addEventListener('deviceready', function(){
 		function(e) {
 			$("#message").text("Ｂ地点の位置情報が取得できませんでした");
 		}, geoOptions);
+	    changeImage("btnB","./img/b_button.png");
 	});
 
 	$("#btnR").click(function() {
@@ -35,18 +39,6 @@ document.addEventListener('deviceready', function(){
 		$("#longitudeB").text("");
 		$("#distance").text("");
 		$("#message").text("");
-	});
-
-	// テスト用
-	$("#setA").click(function() {
-		$("#latitudeA").text($("#latitudeDummy").val());
-		$("#longitudeA").text($("#longitudeDummy").val());
-		setDistance();
-	});
-	$("#setB").click(function() {
-		$("#latitudeB").text($("#latitudeDummy").val());
-		$("#longitudeB").text($("#longitudeDummy").val());
-		setDistance();
 	});
 }, false);
 
@@ -63,4 +55,9 @@ function setDistance() {
 	positionB["longitude"] = $("#longitudeB").text();
 
 	$("#distance").text(geolib.getDistance(positionA, positionB) + " (m)");
+}
+
+// 画像差し替え用処理
+function changeImage( imgid , newimg ) {
+   document.getElementById(imgid).src = newimg;
 }
