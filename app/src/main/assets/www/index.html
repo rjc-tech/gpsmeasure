@@ -29,38 +29,22 @@
         <title>GPS Measure</title>
     </head>
     <style type="text/css">
-        <!--
-
-        #btnR {float:right;}
-        .textarea {background-image:none;
-                   background-color: white;
-                   border-radius: 1em;
-                   border: solid 1px;}
-        -->
     </style>
     <body bgcolor="gray">
-        <div style="background-image:url(./img/textarea.png)">
-            Ａ地点：緯度&nbsp;<span id="latitudeA"></span>&nbsp;経度&nbsp;<span id="longitudeA"></span><br />
-            Ｂ地点：緯度&nbsp;<span id="latitudeB"></span>&nbsp;経度&nbsp;<span id="longitudeB"></span><br />
-            距離&nbsp;&nbsp;：<span id="distance"></span><br />
-            <span id="message"></span><br />
-            <span id="btnR"><img border="0" src="./img/clear_button.png" width="30" height="30" alt="C"/></span>
+        <div style="background-color: white; padding: 5px;">
+            <span>Ａ地点：緯度&nbsp;</span><span id="latitudeA"></span>&nbsp;<span style="margin-left: 50px;">経度&nbsp;</span><span id="longitudeA"></span><br />
+            <span>Ｂ地点：緯度&nbsp;</span><span id="latitudeB"></span>&nbsp;<span style="margin-left: 50px;">経度&nbsp;</span><span id="longitudeB"></span><br />
+            <span>距離　：</span><span id="distance"></span><br />
+            <span id="message" style="color: red;"></span>
+            <div align="right"><img id="btnR" border="0" src="./img/clear_button.png" alt="C"/></div>
         </div>
-        <input type="button" id="btnA" value="Ａ地点" /><br />
-        <input type="button" id="btnB" value="Ｂ地点" /><br />
-        <br />
+        <br/>
 
-        <!-- テスト用 -->
-        <p>
-            緯度：<input type="text" id="latitudeDummy" /><br />
-            経度：<input type="text" id="longitudeDummy" /><br />
-
-            <div align="center">
-                <img id="setA" border="0" src="./img/a_button.png" width="128" height="128" alt="A地点"/>
-                <br/>
-                <img id="setB" border="0" src="./img/b_button.png" width="128" height="128" alt="B地点"/>
-            </div>
-        </p>
+        <div align="center">
+            <img id="btnA" border="0" src="./img/a_button.png" width="180" height="180" alt="A地点"/>
+            <br/><br/>
+            <img id="btnB" border="0" src="./img/b_button.png" width="180" height="180" alt="B地点"/>
+        </div>
         <script type="text/javascript" src="js/cordova.js"></script>
         <script src="js/jquery.js"></script>
         <script src="js/geolib.js"></script>
