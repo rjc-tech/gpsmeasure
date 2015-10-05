@@ -1,4 +1,6 @@
 document.addEventListener('deviceready', function(){
+
+    // 端末の機能チェック
 	if (!navigator.geolocation) {
 		$("#message").text("お使いの端末ではご利用できません");
 		return;
@@ -9,6 +11,7 @@ document.addEventListener('deviceready', function(){
 		return;
 	}
 
+    // 前回実行時の値をストレージから設定
 	var latitudeA = window.localStorage.getItem("latitudeA");
 	if (latitudeA) {
 		$("#latitudeA").text(latitudeA);
@@ -70,6 +73,7 @@ document.addEventListener('deviceready', function(){
 	    changeImage("btnR","./img/clear_button_onClick.png");
 	});
 
+    // 距離を計算して設定する
     function setDistance() {
         if ($("#latitudeA").text() == "" || $("#latitudeB").text() == "") {
             return;
