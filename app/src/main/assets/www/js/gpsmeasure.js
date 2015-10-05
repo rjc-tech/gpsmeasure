@@ -69,24 +69,24 @@ document.addEventListener('deviceready', function(){
 		window.localStorage.clear();
 	    changeImage("btnR","./img/clear_button_onClick.png");
 	});
+
+    function setDistance() {
+        if ($("#latitudeA").text() == "" || $("#latitudeB").text() == "") {
+            return;
+        }
+
+        var positionA = {};
+        var positionB = {};
+        positionA["latitude"] = $("#latitudeA").text();
+        positionA["longitude"] = $("#longitudeA").text();
+        positionB["latitude"] = $("#latitudeB").text();
+        positionB["longitude"] = $("#longitudeB").text();
+
+        $("#distance").text(geolib.getDistance(positionA, positionB) + " (m)");
+    }
+
+    // 画像差し替え用処理
+    function changeImage( imgid , newimg ) {
+       $("#" + imgid).attr("src", newimg);
+    }
 }, false);
-
-function setDistance() {
-	if ($("#latitudeA").text() == "" || $("#latitudeB").text() == "") {
-		return;
-	}
-
-	var positionA = {};
-	var positionB = {};
-	positionA["latitude"] = $("#latitudeA").text();
-	positionA["longitude"] = $("#longitudeA").text();
-	positionB["latitude"] = $("#latitudeB").text();
-	positionB["longitude"] = $("#longitudeB").text();
-
-	$("#distance").text(geolib.getDistance(positionA, positionB) + " (m)");
-}
-
-// 画像差し替え用処理
-function changeImage( imgid , newimg ) {
-   $("#" + imgid).attr("src", newimg);
-}
