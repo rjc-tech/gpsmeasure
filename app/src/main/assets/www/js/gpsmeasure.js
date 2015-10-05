@@ -1,15 +1,21 @@
-document.addEventListener('deviceready', function(){
+var msgJp;
 
-    // 端末の機能チェック
-	if (!navigator.geolocation) {
-		alert("お使いの端末ではご利用できません");
-		navigator.app.exitApp();
-	}
+document.addEventListener('deviceready', function() {
 
-	if (!window.localStorage) {
-		alert("お使いの端末ではご利用できません");
-		navigator.app.exitApp();
-	}
+    $.getJSON("messages/msg_jp.json").done(function (data){
+        msgJp = data;
+
+        // 端末の機能チェック
+        if (!navigator.geolocation) {
+            alert(msgJp.system.canNotUse);
+            navigator.app.exitApp();
+        }
+
+        if (!window.localStorage) {
+            alert(msgJp.system.canNotUse);
+            navigator.app.exitApp();
+        }
+    });
 
     // 前回実行時の値をストレージから設定
 	var latitudeA = window.localStorage.getItem("latitudeA");
@@ -45,7 +51,7 @@ document.addEventListener('deviceready', function(){
 			setDistance();
 		},
 		function(e) {
-			$("#message").text("Ａ地点の位置情報が取得できませんでした");
+			$("#message").text(msgJp.location.unknownA);
 		}, geoOptions);
 	});
 
@@ -58,7 +64,7 @@ document.addEventListener('deviceready', function(){
 			setDistance();
 		},
 		function(e) {
-			$("#message").text("Ｂ地点の位置情報が取得できませんでした");
+			$("#message").text(msgJp.location.unknownB);
 		}, geoOptions);
 	});
 
