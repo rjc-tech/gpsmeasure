@@ -27,23 +27,23 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>GPS Measure</title>
+        <link REL="stylesheet" HREF="css/index.css" TYPE="text/css">
     </head>
     <body bgcolor="gray">
-        <div style="background-color: white; padding: 5px;">
+        <div class="textArea">
             <span>Ａ地点：緯度&nbsp;</span><span id="latitudeA"></span><br/>
-            <span>　　　　経度&nbsp;</span><span id="longitudeA"></span><br/>
+            <span class="space4">経度&nbsp;</span><span id="longitudeA"></span><br/>
             <span>Ｂ地点：緯度&nbsp;</span><span id="latitudeB"></span><br/>
-            <span>　　　　経度&nbsp;</span><span id="longitudeB"></span><br/>
-            <span>距離　：</span><span id="distance"></span><br/>
-            <span id="message" style="color: red;"></span>
-            <div align="right"><img id="btnR" border="0" src="./img/clear_button.png" alt="C"/></div>
+            <span class="space4">経度&nbsp;</span><span id="longitudeB"></span><br/>
+            <span class="space1">距離</span>：<span id="distance"></span><br/>
+            <span class="message"></span>
+            <div align="right"><img id="btnR" border="0" src="img/clear_button.png" alt="C"/></div>
         </div>
-        <br/>
+        <br>
 
         <div align="center">
-            <img id="btnA" border="0" src="./img/a_button.png" width="180px;" height="180px;" alt="A地点"/>
-            <br/><br/>
-            <img id="btnB" border="0" src="./img/b_button.png" width="180px;" height="180px;" alt="B地点"/>
+            <img id="btnA" border="0" src="img/a_button.png" width="180px;" height="180px;" alt="A地点"/>
+            <img id="btnB" border="0" src="img/b_button.png" width="180px;" height="180px;" alt="B地点"/>
         </div>
         <script type="text/javascript" src="js/cordova.js"></script>
         <script src="js/jquery.js"></script>

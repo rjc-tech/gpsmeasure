@@ -42,7 +42,7 @@ document.addEventListener('deviceready', function() {
 	$("#btnR").bind("touchstart", function() {changeImage("btnR","./img/clear_button_onClick.png");});
 	$("#btnR").bind("touchend", function() {changeImage("btnR","./img/clear_button.png");});
 
-	$("#btnA").click(function() {
+	$("#btnA").click(   function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
 			window.localStorage.setItem("latitudeA", position.coords.latitude);
 			window.localStorage.setItem("longitudeA", position.coords.longitude);
