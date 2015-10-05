@@ -70,7 +70,6 @@ document.addEventListener('deviceready', function(){
 		$("#distance").text("");
 		$("#message").text("");
 		window.localStorage.clear();
-	    changeImage("btnR","./img/clear_button_onClick.png");
 	});
 
     // 距離を計算して設定する
