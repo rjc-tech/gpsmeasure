@@ -2,13 +2,13 @@ document.addEventListener('deviceready', function(){
 
     // 端末の機能チェック
 	if (!navigator.geolocation) {
-		$("#message").text("お使いの端末ではご利用できません");
-		return;
+		alert("お使いの端末ではご利用できません");
+		navigator.app.exitApp();
 	}
 
 	if (!window.localStorage) {
-		$("#message").text("お使いの端末ではご利用できません");
-		return;
+		alert("お使いの端末ではご利用できません");
+		navigator.app.exitApp();
 	}
 
     // 前回実行時の値をストレージから設定
